@@ -1,0 +1,93 @@
+* {
+    /* outline: 2px solid red; */
+    margin: auto;
+}
+html {
+    background-color: #e6e3e3;
+}
+.not_read, .read {
+    display: inline;
+}
+h1, .book-icon, .showDialog-btn, img{
+    display: block;
+    width: 150px;
+}
+.showDialog-btn {
+    width: 100px;
+    margin: 20px auto;
+    padding: 5px;
+    font-size: 15px;
+}
+.line-divider{
+    margin: 8vh 25vw;
+}
+footer {
+    width: 60vw;
+}
+.about-info, .copyright-info {
+    width: 30vw;
+    text-align: center;
+    margin: 10vh auto;
+}
+p {
+    font-size: 18px;
+}
+h2, .copyright-info p, .copyright-info button {
+    margin-bottom: 10px;
+}
+
+/* table styling */
+table {
+    /* border: 1px solid white; */
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 22px;
+}
+
+thead {
+    background-color: black;
+    color: white;
+}
+th {
+    font-weight: 100;
+}
+td,th {
+    padding: 10px;
+}
+/* end of table styling */
+
+/* start of toggle switch btn styling */
+
+/* .btn-container {
+    width: 200px;
+    position: relative;
+    margin: 35px auto;
+} */
+.button-box {
+    width: 154px;
+    /* margin: 35px auto; */
+    position: relative;
+    border-radius: 30px;
+    background: #fff;
+}
+.toggle-btn {
+    padding: 10px 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    text-align: center;
+}
+.toggle-btn-color {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 77px;
+    height: 100%;
+    background: #e67e22;
+    border-radius: 30px;
+    transition: .5s; 
+    padding-left: 10px;
+}
+/* end of toggle switch btn styling */
