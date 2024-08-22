@@ -26,6 +26,7 @@ const myLibrary = [
 ];
 
 submitButton.addEventListener('click', () => {
+        i++;
         let fReadInput;
         if (readInput.checked == true) {
             fReadInput = readInput.value;
@@ -33,10 +34,9 @@ submitButton.addEventListener('click', () => {
             fReadInput = notReadInput.value;
         }
 
-        let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, fReadInput)
+        let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, fReadInput, i)
         myLibrary.push(newBook);
 
-        i++;
         displayBook();    
         attachEventListenerLoop();
         toggleBtnColorArray = Array.from(document.querySelectorAll('.toggle-btn-color'));
@@ -109,6 +109,13 @@ function deleteItem(e) {
     updateTable(myLibrary);
     attachEventListenerLoop();
     toggleBtnColorArray = Array.from(document.querySelectorAll('.toggle-btn-color'));
+
+    for (let x = 0; x < myLibrary.length; x++) {
+        if (myLibrary[x].read == 'Read') {
+            toggleBtnColorArray[x].style.left = '77px';
+        }
+    }
+    
     //click delete -> correlated array item is removed from array -> new table is updated (1. showDefault table  2. displayBooks + add new delete buttons to each tr)
 }
 
@@ -135,13 +142,6 @@ function updateTable(array) {
             `;
     
         table.appendChild(tr);
-
-        let toggleBtnColor = document.querySelector('.toggle-btn-color');
-        if (array[i].read == "Read") {
-            toggleBtnColor.style.left = '77px';
-        }
-
-
     }
 }
 
@@ -166,7 +166,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    // this.dataID = dataID;
+    // this.arrayID = arrayID;
 }
 
 function leftClick(e) {
