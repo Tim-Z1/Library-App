@@ -1,12 +1,9 @@
 * {
-    /* outline: 2px solid red; */
     margin: auto;
+    box-sizing: border-box;
 }
 html {
     background-color: #e6e3e3;
-}
-.not_read, .read {
-    display: inline;
 }
 h1, .book-icon, .showDialog-btn, img{
     display: block;
@@ -42,11 +39,15 @@ table {
     border-collapse: collapse;
     text-align: center;
     font-size: 22px;
+    border: 1px solid black;
 }
 
 thead {
-    background-color: black;
+    background-color: #787878;
+    background-color: rgb(66, 66, 66);
+
     color: white;
+    /* border-bottom: 0.1px solid black; */
 }
 th {
     font-weight: 100;
@@ -57,12 +58,6 @@ td,th {
 /* end of table styling */
 
 /* start of toggle switch btn styling */
-
-/* .btn-container {
-    width: 200px;
-    position: relative;
-    margin: 35px auto;
-} */
 .button-box {
     width: 154px;
     /* margin: 35px auto; */
@@ -85,9 +80,76 @@ td,th {
     position: absolute;
     width: 77px;
     height: 100%;
-    background: #e67e22;
+    /* background: #e67e22; */
+    background: #fb923c;
     border-radius: 30px;
     transition: .5s; 
-    padding-left: 10px;
+    /* padding-left: 10px; */
 }
 /* end of toggle switch btn styling */
+
+/* dialog modal styling */
+dialog {
+    width: 25%;
+    /* height: 35em; */
+    border-radius: 0.5em;
+    border: none;
+}
+dialog h2 {
+    /* font-size: 23px; */
+    padding-bottom: 0.5em;
+    font-weight: normal;
+}
+dialog form {
+    padding-top: 1em;
+}
+dialog form input {
+    /* display: block; */
+    margin: 0;
+    width: 100%;
+    height: 2.5em;
+    border: 1px solid rgb(202, 200, 200);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+dialog form label {
+    font-size: 1.1rem;
+}
+dialog form div:not(:first-child) {
+    margin-top: 1rem;
+}
+
+#not_read-radio, #read-radio {
+    display: inline;
+    height: 1rem;
+    width: 10%;
+}
+.read, .not_read {
+    display: inline;
+}
+.read_status_container {
+    margin-bottom: 1rem;
+}
+.save-btn {
+    margin-top: 0.5rem;
+    background-color: #422006;
+    color: white;
+}
+h2, .X-btn {
+    display: inline;
+    margin: 0;
+    font-size: 1.5rem;
+}
+.dialog-header {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+.X-btn {
+    background: transparent;
+    border: none;
+    margin-right: 1rem;
+}
+.cancel-btn {
+    margin-top: 0.7rem;
+}
