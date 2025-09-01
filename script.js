@@ -1,3 +1,5 @@
+console.log('form-validation git branch test');
+
 const table = document.querySelector('.table');
 const tableBody = document.querySelector('.tbody');
 const dialog = document.querySelector('dialog');
