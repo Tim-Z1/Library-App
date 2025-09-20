@@ -1,5 +1,3 @@
-console.log('form-validation git branch test');
-
 const table = document.querySelector('.table');
 const tableBody = document.querySelector('.tbody');
 const dialog = document.querySelector('dialog');
@@ -36,7 +34,10 @@ Book.prototype.toggleReadStatus = function() {
     (this.read == 'Read') ? this.read = 'Not Read' : this.read = 'Read';
 };
 
-showDialogBtn.addEventListener( "click", () => dialog.showModal() );
+showDialogBtn.addEventListener( "click", () => {
+    resetInputValues();
+    dialog.showModal();
+});
 
 (function initialiseDefaultDisplay(){
     myLibrary.push(
@@ -53,20 +54,44 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
-submitButton.addEventListener('click', () => {
-        let fReadInput;
-        if (readInput.checked == true) {
-            fReadInput = readInput.value;
-        } else {
-            fReadInput = notReadInput.value;
-        }
 
+submitButton.addEventListener('click', () => {
+    let fReadInput;
+    if (readInput.checked == true) {
+        fReadInput = readInput.value;
+    } else {
+        fReadInput = notReadInput.value;
+    }
+    
+    let validityCheck = 0;
+    if (titleInput.validity.valueMissing) {
+        titleInput.setCustomValidity('Please enter a book title');
+    } else {
+        titleInput.setCustomValidity("");
+        validityCheck++;
+    }
+    
+    if (authorInput.validity.valueMissing) {
+        authorInput.setCustomValidity('Please enter a book author\'s name');
+    } else {
+        authorInput.setCustomValidity("");
+        validityCheck++;
+    }
+    
+    if (pagesInput.validity.valueMissing) {
+        pagesInput.setCustomValidity('Please enter page numbers');
+    } else {
+        pagesInput.setCustomValidity("");
+        validityCheck++;
+    }
+
+    if (validityCheck == 3) {
         addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, fReadInput);
         displayBooks(myLibrary);
         attachEventListenerLoop();
-
-        resetInputValues();
+    }
 });
+
 
 function resetInputValues() {
     titleInput.value = '';
